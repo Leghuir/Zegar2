@@ -21,7 +21,7 @@
         <input type=submit class="link" value="Wyloguj"/>
     </form>
     -->    
-    <ul id="messages" th:with="notifyMessages=${session[T(pl.sternik.kk.week.services.NotificationServiceImpl).NOTIFY_MSG_SESSION_KEY]}">
+    <ul id="messages" th:with="notifyMessages=${session[T(pl.simple.zegarki.services.NotificationServiceImpl).NOTIFY_MSG_SESSION_KEY]}">
       <li th:each="msg : ${notifyMessages}" th:text="${msg.text}"
            th:class="${#strings.toLowerCase(msg.type)}">
       </li>
@@ -36,8 +36,8 @@
   </div>
 
   <footer th:fragment="site-footer"> 
-  Krzysztof Kozioł <a href="https://github.com/kkoziol/sternik-week"> Source code</a>
-  &copy; Sternik Klaser System, 2017 
+  Marcin Pieczka <a href="https://github.com/Leghuir/Zegar2"> Source code</a>
+  Projekt zaliczeniowy, 2017 
   </footer>
 
 </body>
