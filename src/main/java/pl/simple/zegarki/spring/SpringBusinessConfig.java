@@ -12,7 +12,7 @@ import org.springframework.context.annotation.ImportResource;
 
 @Configuration
 @ComponentScan(basePackages = { "pl.simple.zegarki.week" }, excludeFilters = {
-        @Filter(type = FilterType.REGEX, pattern = "pl\\.simple\\.zegarki\\.web\\..*") })
+        @Filter(type = FilterType.REGEX, pattern = "pl\\.simple\\.zegarki\\.controller") })
 //@ImportResource({"classpath:/applicationContext.xml"})//,"classpath:/database-config.xml"})
 public class SpringBusinessConfig {
 

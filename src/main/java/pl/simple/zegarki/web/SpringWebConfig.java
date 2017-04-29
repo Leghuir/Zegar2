@@ -17,11 +17,12 @@ import org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
 
+import pl.simple.zegarki.controller.KlaserController;
 import pl.simple.zegarki.conversion.DateFormatter;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan({ "pl.simple.zegarki.web" })
+@ComponentScan({ "pl.simple.zegarki" })
 public class SpringWebConfig
         extends WebMvcConfigurerAdapter implements ApplicationContextAware {
 
@@ -87,7 +88,7 @@ public class SpringWebConfig
         // resource resolution infrastructure, which is highly recommended.
         SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
         templateResolver.setApplicationContext(this.applicationContext);
-        templateResolver.setPrefix("/WEB-INF/templates/");
+        templateResolver.setPrefix("WEB-INF/templates/");
         templateResolver.setSuffix(".html");
         // HTML is the default value, added here for the sake of clarity.
         templateResolver.setTemplateMode(TemplateMode.HTML);
