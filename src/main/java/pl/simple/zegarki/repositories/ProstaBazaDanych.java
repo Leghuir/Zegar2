@@ -10,6 +10,8 @@ import org.springframework.stereotype.Repository;
 
 import pl.simple.zegarki.entities.Moneta;
 import pl.simple.zegarki.entities.Status;
+import pl.simple.zegarki.exception.MonetaAlreadyExistsException;
+import pl.simple.zegarki.exception.NoSuchMonetaException;
 
 
 @Repository

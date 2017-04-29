@@ -3,6 +3,8 @@ package pl.simple.zegarki.repositories;
 import java.util.List;
 
 import pl.simple.zegarki.entities.Moneta;
+import pl.simple.zegarki.exception.MonetaAlreadyExistsException;
+import pl.simple.zegarki.exception.NoSuchMonetaException;
 
 
 public interface MonetyRepository {

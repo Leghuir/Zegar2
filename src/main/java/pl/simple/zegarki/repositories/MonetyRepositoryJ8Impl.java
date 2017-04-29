@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import pl.simple.zegarki.entities.Moneta;
 import pl.simple.zegarki.entities.Status;
+import pl.simple.zegarki.exception.NoSuchMonetaException;
 
 
 @Service

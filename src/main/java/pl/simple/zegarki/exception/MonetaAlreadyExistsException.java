@@ -1,4 +1,4 @@
-package pl.simple.zegarki.repositories;
+package pl.simple.zegarki.exception;
 
 public class MonetaAlreadyExistsException extends Exception {
     private static final long serialVersionUID = -4576295597218170159L;

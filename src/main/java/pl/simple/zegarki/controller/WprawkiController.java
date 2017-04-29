@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import pl.simple.zegarki.entities.Moneta;
 import pl.simple.zegarki.entities.Status;
-import pl.simple.zegarki.repositories.MonetaAlreadyExistsException;
+import pl.simple.zegarki.exception.MonetaAlreadyExistsException;
+import pl.simple.zegarki.exception.NoSuchMonetaException;
 import pl.simple.zegarki.repositories.MonetyRepository;
-import pl.simple.zegarki.repositories.NoSuchMonetaException;
 
 @Controller
 public class WprawkiController {

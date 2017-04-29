@@ -9,9 +9,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import pl.simple.zegarki.entities.Moneta;
-import pl.simple.zegarki.repositories.MonetaAlreadyExistsException;
+import pl.simple.zegarki.exception.MonetaAlreadyExistsException;
+import pl.simple.zegarki.exception.NoSuchMonetaException;
 import pl.simple.zegarki.repositories.MonetyRepository;
-import pl.simple.zegarki.repositories.NoSuchMonetaException;
 
 
 @Service
