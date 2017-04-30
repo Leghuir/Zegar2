@@ -20,6 +20,7 @@ public interface Watch {
 	public String getModel();
 
 	public Date getMadeDate();
+	public WatchType getType();
 
 	public String getCountry_name();
 

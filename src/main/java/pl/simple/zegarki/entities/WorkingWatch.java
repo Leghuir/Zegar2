@@ -27,7 +27,11 @@ public class WorkingWatch implements Watch {
 		this.type=type;
 	}
 
-
+	@Override
+	public WatchType getType() {
+		// TODO Auto-generated method stub
+		return type;
+	}
 	public WorkingWatch() {
 		// TODO Auto-generated constructor stub
 	}

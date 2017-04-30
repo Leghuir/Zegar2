@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="layout ::site-head">
+<title>Watch Collection</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" media="all" href="../../css/klaser.css" th:href="@{/css/klaser.css}" />
+</head>
+
+<body>
+  <header th:replace="layout :: site-header" />
+  <div>
+    <h2 th:text="#{title.list}" style="display: inline;">Watch Collection</h2>
+  </div>
+  
+  <div class="listaMonet" th:unless="${#lists.isEmpty(watchAll)}">
+    <table>
+      <thead>
+        <tr>
+          <th th:text="#{Collection.id}">id</th>
+          <th th:text="#{Collection.model}">model</th>
+          <th th:text="#{Collection.date}">made date</th>
+          <th th:text="#{Collection.country}">country</th>
+          <th th:text="#{Collection.describe}">describe</th>
+          <th th:text="#{Collection.value}">value</th>
+          <th th:text="#{Collection.voice}">voice</th>
+          <th th:text="#{Collection.type}">watch type</th>
+          <th th:text="#{Collection.operations}">operations</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="watch : ${watchAll}">
+          <form action="#" th:action="@{/monety}" th:object="${watch}" method="post">
+          <td th:text="${watch.getId()}">1</td>
+          <td th:text="${watch.getModel()}">Model</td>
+          <td th:text="${watch.getMadeDate()}">made date</td>
+          <td th:text="${watch.getCountry_name()}">made country</td>
+          <td th:text="${{watch.getDescribe()}}">describe</td>
+          <td th:text="${{watch.getValue()}}">value</td>
+          <td th:text="${watch.makeNoise()}">noise</td>
+          <td th:text="${watch.getType()}">type</td>
+          <td>
+            <button type="submit" name="remove" th:value="${watch.getId()}" th:text="#{Collection.remove}">Dell</button>
+            
+            <a href="moneta.html" th:href="@{|/monety/${watch.getId()}|}" ><button type="button" th:text="#{Collection.edit}">Edit</button></a>              
+          </td>
+          </form>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <footer th:replace="layout :: site-footer" />
+</body>
+</html>

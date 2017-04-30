@@ -94,4 +94,9 @@ public class BrokenWatch implements Watch{
 		// TODO Auto-generated method stub
 		this.id=id_number;
 	}
+	@Override
+	public WatchType getType() {
+		// TODO Auto-generated method stub
+		return type;
+	}
 }

@@ -62,7 +62,7 @@ public class CollectionController {
     @RequestMapping(value = "/watches", method = RequestMethod.GET)
     public String showMainPage(Model model) {
         model.addAttribute("MyMessages",  notificationService.getNotificationMessages());
-        return "klaser";
+        return "Collection";
     }
 
     @RequestMapping("/tosell")

@@ -14,11 +14,16 @@ public class WatchHolder extends Observable implements Watch{
 		super();
 		this.currentState = currentState;
 		this.setId(WatchHolder.count);
+		WatchHolder.count++;
 	}
 	public void setCountry_name(String country) {
 		currentState.setCountry_name(country);
 	}
-
+	@Override
+	public WatchType getType() {
+		// TODO Auto-generated method stub
+		return currentState.getType();
+	}
 	public String getDescribe() {
 		return currentState.getDescribe();
 	}
