@@ -3,18 +3,34 @@ package pl.simple.zegarki.entities;
 import java.util.Date;
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 import pl.simple.zegarki.exception.NoSuchWatchException;
 import pl.simple.zegarki.basic.Watch;
 import pl.simple.zegarki.basic.WatchType;
-
+@XmlRootElement
 public class WorkingWatch implements Watch {
-	protected int id;
-	protected String Model;
-	protected Date madeDate;
-	protected String country_name;
-	protected String describe;
-	protected int value;
-	protected String voice;
+	public String getVoice() {
+		return voice;
+	}
+	public void setModel(String model) {
+		Model = model;
+	}
+	public void setMadeDate(Date madeDate) {
+		this.madeDate = madeDate;
+	}
+	public void setType(WatchType type) {
+		this.type = type;
+	}
+
+
+	private int id;
+	private String Model;
+	private Date madeDate;
+	private String country_name;
+	private String describe;
+	private int value;
+	private String voice;
 	private WatchType type;
 
 	public WorkingWatch(String model, Date madeDate, String country_name, String describe, int value, String voice,WatchType type) {
@@ -26,7 +42,27 @@ public class WorkingWatch implements Watch {
 		this.voice = voice;
 		this.type=type;
 	}
-
+	public WorkingWatch(Watch watch)
+	{
+		Model = watch.getModel();
+		this.madeDate = watch.getMadeDate();
+		this.country_name = watch.getCountry_name();
+		this.describe = watch.getDescribe();
+		this.value = watch.getValue();
+		this.voice = watch.makeNoise();
+		this.type= watch.getType();
+	}
+	
+	public WorkingWatch(BrokenWatch watch)
+	{
+		Model = watch.getModel();
+		this.madeDate = watch.getMadeDate();
+		this.country_name = watch.getCountry_name();
+		this.describe = watch.getDescribe();
+		this.value = watch.getValue();
+		this.voice = watch.makeNoise();
+		this.type= watch.getType();
+	}
 	@Override
 	public WatchType getType() {
 		// TODO Auto-generated method stub
@@ -96,6 +132,11 @@ public class WorkingWatch implements Watch {
 	public void setId(int id_number) {
 		// TODO Auto-generated method stub
 		this.id=id_number;
+	}
+	@Override
+	public WorkingWatch reapir() {
+		// TODO Auto-generated method stub
+		return this;
 	}
 
 }

@@ -11,7 +11,7 @@ import pl.simple.zegarki.entities.WatchHolder;
 public interface ServerAble {
     WatchHolder create(WatchHolder watch) throws WatchAlreadyExitstsException;
     WatchHolder readById(int id) throws NoSuchWatchException;
-    WatchHolder update(WatchHolder watch) throws NoSuchWatchException;
+    Watch update(Watch watch) throws NoSuchWatchException;
     void deleteById(int id) throws NoSuchWatchException;
     List<WatchHolder> findAll();
 }

@@ -22,8 +22,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import pl.simple.zegarki.services.CollectionServiceBasic;
 import pl.simple.zegarki.services.NotificationService;
+import pl.simple.zegarki.basic.Watch;
 import pl.simple.zegarki.basic.WatchType;
+import pl.simple.zegarki.entities.Moneta;
+import pl.simple.zegarki.entities.WatchEntity;
 import pl.simple.zegarki.entities.WatchHolder;
+import pl.simple.zegarki.entities.WorkingWatch;
 
 
 @Controller
@@ -36,7 +40,7 @@ public class WatchesController {
     @Autowired
     private NotificationService notifyService;
 
-    @ModelAttribute("statusyAll")
+    @ModelAttribute("typyAll")
     public List<WatchType> populateStatusy() {
         return Arrays.asList(WatchType.ALL);
     }
@@ -47,7 +51,8 @@ public class WatchesController {
         result = WatchService.findById(id);
         if (result.isPresent()) {
             WatchHolder watch = result.get();
-            model.addAttribute("watch", watch);
+            WorkingWatch watch2=watch.reapir();
+            model.addAttribute("workingWatch", watch2);
             return "watch";
         } else {
             notifyService.addErrorMessage("Cannot find watch #" + id);
@@ -56,7 +61,7 @@ public class WatchesController {
         }
     }
 
-    @RequestMapping(value = "/watches/{id}/json", produces = "application/json", method = RequestMethod.GET)
+   /* @RequestMapping(value = "/watches/{id}/json", produces = "application/json", method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity<WatchHolder> viewAsJson(@PathVariable("id") int id, final ModelMap model) {
         Optional<WatchHolder> result;
@@ -69,16 +74,16 @@ public class WatchesController {
             model.clear();
             return new ResponseEntity<WatchHolder>(HttpStatus.NOT_FOUND);
         }
-    }
+    }*/
 
     @RequestMapping(value = "/watches", params = { "save" }, method = RequestMethod.POST)
-    public String saveMoneta(WatchHolder watch, BindingResult bindingResult, ModelMap model) {
+    public String saveMoneta(WorkingWatch watch, BindingResult bindingResult, ModelMap model) {
 
         if (bindingResult.hasErrors()) {
             notifyService.addErrorMessage("Please fill the form correctly!");
             return "watch";
         }
-        Optional<WatchHolder> result = WatchService.edit(watch);
+        Optional<Watch> result = WatchService.edit(watch);
         if (result.isPresent())
             notifyService.addInfoMessage("Zapis udany");
         else
@@ -88,12 +93,12 @@ public class WatchesController {
     }
 
     @RequestMapping(value = "/watches", params = { "create" }, method = RequestMethod.POST)
-    public String createMoneta(WatchHolder watch, BindingResult bindingResult, ModelMap model) {
+    public String createMoneta(WorkingWatch watch, BindingResult bindingResult, ModelMap model) {
         if (bindingResult.hasErrors()) {
             notifyService.addErrorMessage("Please fill the form correctly!");
             return "watch";
         }
-        WatchService.create(watch);
+        WatchService.create(new WatchHolder(watch));
         model.clear();
         notifyService.addInfoMessage("Zapis nowej udany");
         return "redirect:/watches";
@@ -107,7 +112,7 @@ public class WatchesController {
     }
 
     @RequestMapping(value = "/watches/create", method = RequestMethod.GET)
-    public String showMainPages(final WatchHolder watch) {
+    public String showMainPages(final WorkingWatch watch) {
         return "watch";
     }
 }

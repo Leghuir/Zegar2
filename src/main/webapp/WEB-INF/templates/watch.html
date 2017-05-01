@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout ::site-head">
+<title>Watches Collection</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" media="all" href="../../css/klaser.css" th:href="@{/css/klaser.css}" />
+</head>
+
+<body>
+  <header th:replace="layout :: site-header" />
+             
+  <div>
+     <form action="#" th:action="@{/watches}" th:object="${workingWatch}" method="post">
+
+      <fieldset>
+
+        <legend th:text="#{Collection.watch.data}">Starter Data</legend>
+        <ul th:if="${#fields.hasErrors('*')}" class="errorlist">
+          <li th:each="err : ${#fields.errors('*')}" th:text="${err}">Input is incorrect</li>
+        </ul>        
+<div>         
+ <label for="id"> <span th:text="#{Collection.id}">number</span>
+          </label> <input type="text" th:field="*{id}" th:errorclass="fieldError" />
+        </div>
+        <div>
+          <label for="Model"> <span th:text="#{Collection.model}">model</span>
+          </label> <input type="text" th:field="*{Model}" th:errorclass="fieldError" />
+        </div>
+                <div>
+          <label for="madeDate"> <span th:text="#{Collection.date}">Made date</span> (<span
+            th:text="#{date.format}">YYYY/MM/DD</span>)
+          </label> <input type="text" th:field="*{madeDate}" th:errorclass="fieldError" />
+        </div>
+        <div>
+          <label for="country_name"> <span th:text="#{Collection.country}">country</span>
+          </label> <input type="text" th:field="*{country_name}" th:errorclass="fieldError" />
+        </div>
+        <div>
+          <label for="describe"> <span th:text="#{Collection.describe}">describe</span>
+          </label> <input type="text" th:field="*{describe}" th:errorclass="fieldError" />
+        </div>
+        <div>
+          <label for="value"> <span th:text="#{Collection.value}">value</span>
+          </label> <input type="text" th:field="*{value}" th:errorclass="fieldError" />
+        </div>
+        <div>
+          <label for="voice"> <span th:text="#{Collection.voice}">voice</span>
+          </label> <input type="text" th:field="*{voice}" th:errorclass="fieldError" />
+        </div>
+        <div>
+          <label for="type"> <span th:text="#{Collection.type}">type</span></label>
+            <select th:field="*{type}" th:errorclass="fieldError">
+              <option th:each="st : ${typyAll}" th:value="${st}" th:text="${st}">Type</option>
+            </select>          
+        </div>
+
+
+
+        <div class="submit">          
+            <button th:if="*{id}" type="submit" name="save" th:value="*{id}" >Save</button>
+         
+         
+            <button th:unless="*{id}" type="submit" name="create" >Save.</button>            
+            
+             <a href="Collection.html" th:href="@{/watches}" ><button type="button">Cancel</button></a>   
+         
+        </div>
+
+      </fieldset>
+
+    </form>
+ 
+
+  </div>
+  <footer th:replace="layout :: site-footer" />
+</body>
+</html>

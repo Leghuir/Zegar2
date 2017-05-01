@@ -16,7 +16,16 @@ public class BrokenWatch implements Watch{
 	protected int value;
 	protected String voice;
 	private WatchType type;
-
+	public BrokenWatch(Watch watch)
+	{
+		Model = watch.getModel();
+		this.madeDate = watch.getMadeDate();
+		this.country_name = watch.getCountry_name();
+		this.describe = watch.getDescribe();
+		this.value = watch.getValue();
+		this.voice = watch.makeNoise();
+		this.type= watch.getType();
+	}
 	public BrokenWatch(String model, Date madeDate, String country_name, String describe, int value, String voice,WatchType type) {
 		Model = model;
 		this.madeDate = madeDate;
@@ -98,5 +107,10 @@ public class BrokenWatch implements Watch{
 	public WatchType getType() {
 		// TODO Auto-generated method stub
 		return type;
+	}
+	@Override
+	public WorkingWatch reapir() {
+		// TODO Auto-generated method stub
+		return new WorkingWatch(this);
 	}
 }

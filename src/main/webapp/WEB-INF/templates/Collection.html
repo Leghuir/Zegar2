@@ -29,7 +29,7 @@
       </thead>
       <tbody>
         <tr th:each="watch : ${watchAll}">
-          <form action="#" th:action="@{/monety}" th:object="${watch}" method="post">
+          <form action="#" th:action="@{/watches}" th:object="${watch}" method="post">
           <td th:text="${watch.getId()}">1</td>
           <td th:text="${watch.getModel()}">Model</td>
           <td th:text="${watch.getMadeDate()}">made date</td>
@@ -41,7 +41,7 @@
           <td>
             <button type="submit" name="remove" th:value="${watch.getId()}" th:text="#{Collection.remove}">Dell</button>
             
-            <a href="moneta.html" th:href="@{|/monety/${watch.getId()}|}" ><button type="button" th:text="#{Collection.edit}">Edit</button></a>              
+            <a href="watch.html" th:href="@{|/watches/${watch.getId()}|}" ><button type="button" th:text="#{Collection.edit}">Edit</button></a>              
           </td>
           </form>
         </tr>

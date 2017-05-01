@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import pl.simple.zegarki.exception.NoSuchWatchException;
 import pl.simple.zegarki.servers.WatchServer;
+import pl.simple.zegarki.basic.Watch;
 import pl.simple.zegarki.entities.WatchHolder;
 @Service
 @Primary
@@ -40,7 +41,7 @@ public class CollectionServiceBasic implements CollectionService {
 	}
 
 	@Override
-	public Optional<WatchHolder> edit(WatchHolder watch) {
+	public Optional<Watch> edit(Watch watch) {
 		try {
             return Optional.of(watches.update(watch));
         } catch (NoSuchWatchException e) {

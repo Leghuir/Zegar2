@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 import java.util.Observable;
+import java.util.function.Supplier;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -50,8 +51,8 @@ public List<WatchHolder> findAll() {
 
 @Override
 public WatchHolder readById(int id) throws NoSuchWatchException {
-   // return this.MyCollectionOfWatches.stream().filter(p -> p.getId().equals(id))).findFirst().orElseThrow(NoSuchWatchException::new);
-    return null;
+	return this.MyCollectionOfWatches.stream().filter(p -> Integer.valueOf(p.getId()).equals(id)).findFirst().orElseThrow(NoSuchWatchException::new);
+
 }
 
 @Override
@@ -61,10 +62,10 @@ public WatchHolder create(WatchHolder watch) {
 }
 
 @Override
-public WatchHolder update(WatchHolder watch) throws NoSuchWatchException {
+public Watch update(Watch watch) throws NoSuchWatchException {
     for (int i = 0; i < this.MyCollectionOfWatches.size(); i++) {
         if (Objects.equals(this.MyCollectionOfWatches.get(i).getId(), watch.getId())) {
-            this.MyCollectionOfWatches.set(i, watch);
+            this.MyCollectionOfWatches.set(i, new WatchHolder(new WorkingWatch(watch)));
             return watch;
         }
     }

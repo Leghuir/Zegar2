@@ -9,7 +9,14 @@ import pl.simple.zegarki.basic.WatchType;
 public class WatchHolder extends Observable implements Watch{
 	private Watch currentState;
 	private static int count=1;
-
+    public WatchHolder()
+    {
+    	
+    }
+    public WorkingWatch getCurrentState()
+    {
+    	return (WorkingWatch)currentState;
+    }
 	public WatchHolder(Watch currentState) {
 		super();
 		this.currentState = currentState;
@@ -80,6 +87,11 @@ public class WatchHolder extends Observable implements Watch{
 	public void setId(int id_number) {
 		// TODO Auto-generated method stub
 		currentState.setId(id_number);
+	}
+	@Override
+	public WorkingWatch reapir() {
+		// TODO Auto-generated method stub
+		return currentState.reapir();
 	}
 
 }

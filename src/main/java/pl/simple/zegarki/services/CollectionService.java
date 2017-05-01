@@ -3,6 +3,7 @@ package pl.simple.zegarki.services;
 import java.util.List;
 import java.util.Optional;
 
+import pl.simple.zegarki.basic.Watch;
 import pl.simple.zegarki.entities.WatchHolder;
 
 public interface CollectionService {
@@ -14,7 +15,7 @@ public interface CollectionService {
 
     Optional<WatchHolder> create(WatchHolder moneta);
 
-    Optional<WatchHolder> edit(WatchHolder moneta);
+    Optional<Watch> edit(Watch moneta);
 
     Optional<Boolean> deleteById(int id);
 
