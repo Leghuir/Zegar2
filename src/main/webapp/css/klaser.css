@@ -10,8 +10,8 @@ background:#eee;
   margin: 100px auto; 
   padding-top: 20px;
   text-algin:center; 
+ height: 100%;
   width: 80%;
-  height: 600px;
 }
 
 body>header>a>img, body>header a {

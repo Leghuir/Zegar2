@@ -17,7 +17,6 @@ import org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
 
-import pl.simple.zegarki.controller.KlaserController;
 import pl.simple.zegarki.conversion.DateFormatter;
 
 @Configuration

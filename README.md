@@ -1,3 +1,3 @@
 # sternik-week
 
-## Aplikacja skoleniowa grupa weekendowa
+## Aplikacja na zaliczenie

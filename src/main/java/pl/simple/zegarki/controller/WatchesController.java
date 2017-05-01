@@ -24,8 +24,6 @@ import pl.simple.zegarki.services.CollectionServiceBasic;
 import pl.simple.zegarki.services.NotificationService;
 import pl.simple.zegarki.basic.Watch;
 import pl.simple.zegarki.basic.WatchType;
-import pl.simple.zegarki.entities.Moneta;
-import pl.simple.zegarki.entities.WatchEntity;
 import pl.simple.zegarki.entities.WatchHolder;
 import pl.simple.zegarki.entities.WorkingWatch;
 
