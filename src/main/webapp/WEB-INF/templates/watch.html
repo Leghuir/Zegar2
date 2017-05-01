@@ -10,7 +10,7 @@
 
 <body>
   <header th:replace="layout :: site-header" />
-             
+             <div id="mainContent">
   <div>
      <form action="#" th:action="@{/watches}" th:object="${workingWatch}" method="post">
 
@@ -72,7 +72,7 @@
 
     </form>
  
-
+</div>
   </div>
   <footer th:replace="layout :: site-footer" />
 </body>

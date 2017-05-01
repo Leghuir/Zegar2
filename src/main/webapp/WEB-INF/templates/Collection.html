@@ -8,6 +8,7 @@
 
 <body>
   <header th:replace="layout :: site-header" />
+  <div id="mainContent">
   <div>
     <h2 th:text="#{title.list}" style="display: inline;">Watch Collection</h2>
   </div>
@@ -47,6 +48,7 @@
         </tr>
       </tbody>
     </table>
+  </div>
   </div>
   <footer th:replace="layout :: site-footer" />
 </body>
